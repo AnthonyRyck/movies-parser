@@ -12,3 +12,5 @@
 /packages
 /MoviesLib.Test/obj/Release
 /MoviesLib/bin/Release/netstandard2.0
+/MoviesLib/bin/Release/netstandard1.6
+/.vs/MoviesLib/DesignTimeBuild
