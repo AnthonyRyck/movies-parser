@@ -5,3 +5,8 @@
 /MoviesLib/obj
 /_ReSharper.Caches/ReSharperPlatformVs1512_c794f944.MoviesLib.00
 /.vs/MoviesLib/v15/Server/sqlite3
+/MoviesLib/bin/Debug/netstandard2.0
+/.vs/MoviesLib/v15
+/MoviesLib.Test/obj/Debug
+/MoviesLib.Test/bin/Debug
+/packages
