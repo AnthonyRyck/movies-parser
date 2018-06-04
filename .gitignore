@@ -10,3 +10,5 @@
 /MoviesLib.Test/obj/Debug
 /MoviesLib.Test/bin/Debug
 /packages
+/MoviesLib.Test/obj/Release
+/MoviesLib/bin/Release/netstandard2.0
