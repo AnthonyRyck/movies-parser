@@ -14,3 +14,5 @@
 /MoviesLib/bin/Release/netstandard2.0
 /MoviesLib/bin/Release/netstandard1.6
 /.vs/MoviesLib/DesignTimeBuild
+/MoviesLib.Test/bin/Release
+/MoviesLib/bin/Debug/netstandard1.6
