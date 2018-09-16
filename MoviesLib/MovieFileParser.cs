@@ -11,13 +11,12 @@ namespace MoviesLib
     /// Class permettant de faire l'extraction des informations du titre
     /// d'un film (nom de fichier).
     /// </summary>
-    public class MovieFileParser
-    {
+    public class MovieFileParser : VideoParser
+	{
         #region Properties
 
         private const string RESOLUTION_PATTERN = "[0-9]{3,4}p";
         private const string QUALITY_PATTERN = @"([HP]DTV|HDCAM|B[rR]Rip|TS|WEB-DL|H[dD]Rip|DVDRip|DVDRiP|DVDRIP|CamRip|webrip|W[EB]B[rR]ip|[Bb]lu[Rr]ay|DvDScr|hdtv|[Hh][Dd][Ll]ight)";
-        private const string INCONNU = "Inconnu";
         private const string CHIFFRE_ROMAIN_PATTERN = @"(\sI(\s|$)|\sII(\s|$)|\sIII(\s|$)|\sIV(\s|$)|\sV(\s|$)|\sVI(\s|$)|\sVII(\s|$)|\sVIII(\s|$)|\sIX(\s|$)|\sX(\s|$))";
 
         private string _languesPattern;
@@ -69,12 +68,7 @@ namespace MoviesLib
             result.TypeVideo = type;
 
             title = RemoveExtraInformation(title);
-
-            // Ajout de "." à la place des espaces.
-            title = title.Replace(' ', '.')
-                         .Replace('-','.')
-                         .Replace('(','.')
-                         .Replace(')', '.');
+            title = ReplaceCharacters(title);
 
             result.Resolution = GetResolution(ref title, RESOLUTION_PATTERN);
             result.Qualite = GetQuality(ref title, QUALITY_PATTERN);
@@ -247,30 +241,6 @@ namespace MoviesLib
             result += @")";
 
             return result;
-        }
-
-        /// <summary>
-        /// Méthode permettant d'enlever les informations inutiles.
-        /// </summary>
-        /// <param name="title"></param>
-        /// <returns></returns>
-        private string RemoveExtraInformation(string title)
-        {
-            string tempTitle = title;
-
-            if(tempTitle.Contains("[") && tempTitle.Contains("]"))
-            {
-                int indexStart = tempTitle.IndexOf('[');
-                int indexStop = tempTitle.IndexOf(']');
-                int count = indexStop - indexStart + 1;
-
-                tempTitle = tempTitle.Remove(indexStart, count);
-            }
-
-            if (tempTitle[0] == '.' || tempTitle[0] == ' ')
-                tempTitle = tempTitle.Remove(0, 1);
-
-            return tempTitle;
         }
 
         #endregion

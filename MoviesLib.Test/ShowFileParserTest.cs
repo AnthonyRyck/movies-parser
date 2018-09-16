@@ -616,6 +616,40 @@ namespace MoviesLib.Test
             #endregion
         }
 
-        #endregion
-    }
+		#endregion
+
+		#region Test sur des échecs particuliers
+
+		[TestMethod]
+		[TestProperty("MoviesLib", "ShowFileParser")]
+		[Description("Extraire la langue du Torrent - FRENCH.")]
+		public void TestSurSerie_When_ContientDesCrochetsDansLeTitre_Then_EnleverLesCrochets()
+		{
+			#region ARRANGE
+
+			string titreSeries = "[ Torrent9.red ] Greys.Anatomy.S14E12.FRENCH.HDTVXviD-ZT.avi";
+
+			#endregion
+
+			#region ACT
+
+			ShowFileParser parser = new ShowFileParser("FRENCH");
+			var resultParser = parser.GetShow(titreSeries, "fakeName", 0);
+
+			#endregion
+
+			#region ASSERT
+
+			Assert.AreEqual(12, resultParser.Episode);
+			Assert.AreEqual(14, resultParser.Saison);
+			Assert.AreEqual("Inconnu", resultParser.Resolution);
+			Assert.AreEqual("Inconnu", resultParser.Qualite);
+			Assert.AreEqual("FRENCH", resultParser.Langage);
+			Assert.AreEqual("Greys Anatomy", resultParser.Titre);
+
+			#endregion
+		}
+
+		#endregion
+	}
 }

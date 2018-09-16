@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using MoviesLib.Entities;
 
@@ -10,7 +8,7 @@ namespace MoviesLib
 	/// Class permettant de faire l'extraction des informations du titre
 	/// d'une série (nom d'un fichier).
 	/// </summary>
-	public class ShowFileParser
+	public class ShowFileParser : VideoParser
 	{
 		#region Properties
 
@@ -52,13 +50,10 @@ namespace MoviesLib
 	        result.FileName = fileName;
 	        result.Size = sizeByte;
 
-            // Ajout de "." à la place des espaces.
-	        title = title.Replace(' ', '.')
-	                     .Replace('-', '.')
-	                     .Replace('(', '.')
-	                     .Replace(')', '.');
+			title = RemoveExtraInformation(title);
+			title = ReplaceCharacters(title);
 
-			if(Regex.IsMatch(title, SAISON_PATTERN))
+			if (Regex.IsMatch(title, SAISON_PATTERN))
 				result.Saison = GetSeasonOrEpisode(ref title, SAISON_PATTERN);
 
 		    if (Regex.IsMatch(title, EPISODE_PATTERN))
@@ -109,8 +104,8 @@ namespace MoviesLib
             RemoveResultRegex(matchResult.Value, title);
 
 			return string.IsNullOrEmpty(matchResult.Value)
-			    ? "Inconnu"
-			    : matchResult.Value.Replace(".", String.Empty);
+			    ? INCONNU
+				: matchResult.Value.Replace(".", String.Empty);
 	    }
 
 	    /// <summary>
@@ -125,7 +120,7 @@ namespace MoviesLib
 		    title = RemoveResultRegex(matchResult.Value, title);
 
 			return string.IsNullOrEmpty(matchResult.Value)
-			    ? "Inconnu"
+			    ? INCONNU
 			    : matchResult.Value;
 	    }
 
@@ -176,7 +171,7 @@ namespace MoviesLib
 			Match matchResult = Regex.Match(titleTempMajuscule, _languesPattern);
 
 			return string.IsNullOrEmpty(matchResult.Value)
-				? "Inconnu"
+				? INCONNU
 				: matchResult.Value.Replace(".", string.Empty);
 		}
 
