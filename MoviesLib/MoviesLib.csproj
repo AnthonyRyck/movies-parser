@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
+    <Version>1.0.4</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Ryck.MoviesLib</PackageId>
+    <Authors>Anthony Ryck</Authors>
+    <Company />
+    <PackageProjectUrl>https://github.com/AnthonyRyck/movies-parser</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/AnthonyRyck/movies-parser/master/LICENSE</PackageLicenseUrl>
+    <Copyright>Copyright © Anthony Ryck 2008</Copyright>
+    <PackageTags>parser</PackageTags>
   </PropertyGroup>
 
 </Project>
