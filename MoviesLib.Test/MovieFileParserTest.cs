@@ -291,5 +291,31 @@ namespace MoviesLib.Test
 		    #endregion
 	    }
 
-	}
+        [TestMethod]
+        [TestProperty("MoviesLib", "MovieFileParser")]
+        [Description("")]
+        public void ExtraireDeToutesLesInfosDuTitre_When_PourResolution4k()
+        {
+            #region ARRANGE
+
+            string titreSeries = "Harriet.2019.4K.MULTI.VFF.2160p.HDR.web.ac3.x265.mkv";
+
+            #endregion
+
+            #region ACT
+
+            MovieFileParser parser = new MovieFileParser("VOSTFR", "FRENCH", "TRUEFRENCH");
+            var resultParser = parser.GetInformation(titreSeries, String.Empty, 0, TypeVideo.Movie);
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual("2160p", resultParser.Resolution);
+            Assert.AreEqual("2019", resultParser.Annee);
+            Assert.AreEqual("HARRIET", resultParser.Titre);
+
+            #endregion
+        }
+    }
 }
