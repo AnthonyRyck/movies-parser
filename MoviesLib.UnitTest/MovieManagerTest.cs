@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoviesLib.Entities;
 
-namespace MoviesLib.Test
+namespace MoviesLib.UnitTest
 {
     [TestClass]
     public class MovieManagerTest

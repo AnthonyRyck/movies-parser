@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoviesLib;
 using MoviesLib.Entities;
 
-namespace MoviesLib.Test
+namespace MoviesLib.UnitTest
 {
     [TestClass]
     public class ShowFileParserTest

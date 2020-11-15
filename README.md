@@ -3,6 +3,8 @@
 
 A library that allows you to do the parsing of video file name to extract the information such as quality, language, resolution, title.
 
+**Updated to .Net 5**
+
 ## Nuget
 
 Install from Nuget using the command: **Install-Package Ryck.MoviesLib**
