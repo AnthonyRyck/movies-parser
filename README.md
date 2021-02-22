@@ -1,6 +1,6 @@
 # Movies-Parser 
 [![NuGet](https://img.shields.io/nuget/vpre/Ryck.MoviesLib.svg)](https://www.nuget.org/packages/Ryck.MoviesLib)
-[![Downloads](https://img.shields.io/nuget/dt/Ryck.MoviesLib.svg)](https://www.nuget.org/packages/Moq)
+[![Downloads](https://img.shields.io/nuget/dt/Ryck.MoviesLib.svg)](https://www.nuget.org/packages/Ryck.MoviesLib)
 
 A library that allows you to do the parsing of video file name to extract the information such as quality, language, resolution, title.
 
