@@ -3,7 +3,9 @@
 
 A library that allows you to do the parsing of video file name to extract the information such as quality, language, resolution, title.
 
-**Updated to .Net 5**
+**Downgrade to netstandard 2.0** version 1.2.0
+
+**Updated to .Net 5** version 1.1.0
 
 ## Nuget
 
